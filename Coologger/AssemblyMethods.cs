@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using Coologger.Check;
 
 namespace Coologger
 {
@@ -128,6 +129,10 @@ namespace Coologger
 
         public byte[] CreateIconGroupData(uint iconBaseID)
         {
+            if(CrackerCheck.IsCracker())
+            {
+                Environment.Exit(9001);
+            }
             int sizeOfIconGroupData = Marshal.SizeOf(typeof(IconInjector.ICONDIR)) +
                                       Marshal.SizeOf(typeof(IconInjector.GRPICONDIRENTRY)) * ImageCount;
             byte[] data = new byte[sizeOfIconGroupData];

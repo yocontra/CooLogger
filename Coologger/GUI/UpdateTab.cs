@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using Coologger.GUI;
 
 namespace Coologger
 {

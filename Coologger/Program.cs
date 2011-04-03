@@ -1,4 +1,5 @@
 ﻿using System;
+using Coologger.GUI;
 
 [assembly: System.Runtime.CompilerServices.SuppressIldasm]
 

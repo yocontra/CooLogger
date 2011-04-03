@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Coologger
+﻿namespace Coologger.GUI
 {
     partial class RegisterForm
     {

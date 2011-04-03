@@ -50,90 +50,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ThemeMethods.cs">
+    <Compile Include="Check\CrackerCheck.cs" />
+    <Compile Include="Check\Crypto.cs" />
+    <Compile Include="Check\FileHasher.cs" />
+    <Compile Include="Check\HeartBeat.cs" />
+    <Compile Include="Check\HostChecker.cs" />
+    <Compile Include="Check\PhoneHome.cs" />
+    <Compile Include="Check\RemoteSettings.cs" />
+    <Compile Include="Check\ThreadChecker.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="GUI\ThemeMethods.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AssemblyMethods.cs" />
-    <Compile Include="MailSettingsForm.cs">
+    <Compile Include="GUI\MailSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MailSettingsForm.Designer.cs">
+    <Compile Include="GUI\MailSettingsForm.Designer.cs">
       <DependentUpon>MailSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SMTPTab.cs">
+    <Compile Include="GUI\SMTPTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SMTPTab.Designer.cs">
+    <Compile Include="GUI\SMTPTab.Designer.cs">
       <DependentUpon>SMTPTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuForm.cs">
+    <Compile Include="GUI\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuForm.Designer.cs">
+    <Compile Include="GUI\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegisterForm.cs">
+    <Compile Include="GUI\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterForm.Designer.cs">
+    <Compile Include="GUI\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdvancedForm.cs">
+    <Compile Include="GUI\AdvancedForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdvancedForm.Designer.cs">
+    <Compile Include="GUI\AdvancedForm.Designer.cs">
       <DependentUpon>AdvancedForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="ProcessSelector.cs">
+    <Compile Include="GUI\ProcessSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProcessSelector.Designer.cs">
+    <Compile Include="GUI\ProcessSelector.Designer.cs">
       <DependentUpon>ProcessSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResaleForm.cs">
+    <Compile Include="GUI\ResaleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResaleForm.Designer.cs">
+    <Compile Include="GUI\ResaleForm.Designer.cs">
       <DependentUpon>ResaleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SupportForm.cs">
+    <Compile Include="GUI\SupportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SupportForm.Designer.cs">
+    <Compile Include="GUI\SupportForm.Designer.cs">
       <DependentUpon>SupportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToolForm.cs">
+    <Compile Include="GUI\ToolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToolForm.Designer.cs">
+    <Compile Include="GUI\ToolForm.Designer.cs">
       <DependentUpon>ToolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateTab.cs">
+    <Compile Include="GUI\UpdateTab.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateTab.Designer.cs">
+    <Compile Include="GUI\UpdateTab.Designer.cs">
       <DependentUpon>UpdateTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
-    <EmbeddedResource Include="MailSettingsForm.resx">
+    <EmbeddedResource Include="GUI\MailSettingsForm.resx">
       <DependentUpon>MailSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SMTPTab.resx">
+    <EmbeddedResource Include="GUI\SMTPTab.resx">
       <DependentUpon>SMTPTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuForm.resx">
+    <EmbeddedResource Include="GUI\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegisterForm.resx">
+    <EmbeddedResource Include="GUI\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdvancedForm.resx">
+    <EmbeddedResource Include="GUI\AdvancedForm.resx">
       <DependentUpon>AdvancedForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProcessSelector.resx">
+    <EmbeddedResource Include="GUI\ProcessSelector.resx">
       <DependentUpon>ProcessSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -146,16 +155,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ResaleForm.resx">
+    <EmbeddedResource Include="GUI\ResaleForm.resx">
       <DependentUpon>ResaleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SupportForm.resx">
+    <EmbeddedResource Include="GUI\SupportForm.resx">
       <DependentUpon>SupportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToolForm.resx">
+    <EmbeddedResource Include="GUI\ToolForm.resx">
       <DependentUpon>ToolForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateTab.resx">
+    <EmbeddedResource Include="GUI\UpdateTab.resx">
       <DependentUpon>UpdateTab.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
@@ -183,6 +192,7 @@
     <None Include="Resources\Advanced Options Previwe.png" />
     <None Include="Resources\action_stop.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

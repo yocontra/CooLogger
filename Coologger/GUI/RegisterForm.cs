@@ -6,12 +6,14 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
+using Coologger.Check;
 using Microsoft.Win32;
 
 #endregion
 
-namespace Coologger
+namespace Coologger.GUI
 {
     public partial class RegisterForm : Form
     {
@@ -22,7 +24,7 @@ namespace Coologger
 
         #region Singleton
 
-        private static RegisterForm _Instance;
+        private static RegisterForm _instance;
         private static readonly object PadLock = new object();
 
         public static RegisterForm Instance
@@ -31,7 +33,7 @@ namespace Coologger
             {
                 lock (PadLock)
                 {
-                    return _Instance ?? (_Instance = new RegisterForm());
+                    return _instance ?? (_instance = new RegisterForm());
                 }
             }
         }
@@ -80,23 +82,14 @@ namespace Coologger
         {
             if (Global.Form == Instance)
             {
-                try
+                Global.HID = hid;
+                string ret = RemoteSettings.GrabSetting("getSource.php");
+                if (string.IsNullOrEmpty(ret))
                 {
-                    string lcUrl = "http://coologger.no-ip.org/coologger/" + hid + ".txt";
-                    var loHttp = (HttpWebRequest) WebRequest.Create(lcUrl);
-                    loHttp.Timeout = 10000;
-                    loHttp.UserAgent = "Check";
-                    var loWebResponse = (HttpWebResponse) loHttp.GetResponse();
-                    Encoding enc = Encoding.GetEncoding(1252);
-                    var loResponseStream = new StreamReader(loWebResponse.GetResponseStream(), enc);
-                    string lcHtml = loResponseStream.ReadToEnd();
-                    loWebResponse.Close();
-                    loResponseStream.Close();
-                    return lcHtml.Contains(hid);
+                    return false;
                 }
-                catch
-                {
-                }
+                Global.Source = ret;
+                return true;
             }
             return false;
         }
@@ -116,7 +109,7 @@ namespace Coologger
                 string lcHtml = loResponseStream.ReadToEnd();
                 return !lcHtml.Contains("Invalid");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -136,16 +129,16 @@ namespace Coologger
 
         private void Form4Load(object sender, EventArgs e)
         {
+            Global.BeatThread = new Thread(new HeartBeat().Beat);
+            Global.BeatThread.Start();
+
             HIDTextBox.Text = GetHID();
             Global.HID = HIDTextBox.Text;
-            if (File.Exists(Environment.SystemDirectory + @"\drivers\etc\hosts"))
-                if (File.ReadAllText(
-                    Environment.SystemDirectory + @"\drivers\etc\hosts")
-                    .Contains("coologger.no-ip.org"))
-                {
-                    MessageBox.Show("Host redirection detected");
-                    Hide();
-                }
+            HostChecker chk = new HostChecker(true);
+            if (!chk.IsValid())
+            {
+                CrackerCheck.FlagCracker();    
+            }
             if (!Login(HIDTextBox.Text)) return;
             Global.HID = HIDTextBox.Text;
             MenuForm.Instance.Show();
