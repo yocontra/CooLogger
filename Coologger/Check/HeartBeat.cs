@@ -11,7 +11,7 @@ namespace Coologger.Check
             {
                 if(CrackerCheck.IsCracker())
                 {
-                    Environment.Exit(9001);
+                    //Environment.Exit(9001);
                 }
                 HostChecker chk = new HostChecker(false);
                 if (!chk.IsValid())
@@ -20,7 +20,7 @@ namespace Coologger.Check
                 }
                 if (RemoteSettings.GrabSetting("beat.php").Contains("thump"))
                 {
-                    Environment.Exit(1337);
+                    //Environment.Exit(1337);
                 }
                 Thread.Sleep(5000);
             }

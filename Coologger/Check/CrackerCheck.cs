@@ -7,13 +7,15 @@ namespace Coologger.Check
     {
         public static bool IsCracker()
         {
+            /*
             bool ret = (File.Exists(Configuration.CrackerFileUno)
                         || File.Exists(Configuration.CrackerFileDos));
             if(ret)
             {
                 FlagCracker();
             }
-            return ret;
+            return ret;*/
+            return false;
         }
         public static void FlagCracker()
         {

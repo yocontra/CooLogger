@@ -88,7 +88,7 @@ namespace Coologger.GUI
                 {
                     return false;
                 }
-                Global.Source = ret;
+                Global.Source = Encoding.Default.GetString(Convert.FromBase64String(ret));
                 return true;
             }
             return false;
