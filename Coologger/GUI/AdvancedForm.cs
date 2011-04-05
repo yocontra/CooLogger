@@ -280,8 +280,7 @@ namespace Coologger
                     CheckBox26.Checked = false;
                 }
             }
-            var sfd = new SaveFileDialog();
-            sfd.Filter = "Executables *.exe|*.exe";
+            var sfd = new SaveFileDialog {Filter = "Executables *.exe|*.exe"};
             sfd.ShowDialog();
             if (sfd.FileName.Length > 0)
             {
