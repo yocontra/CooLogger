@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Net;
-using System.Text;
 using System.Windows.Forms;
+using Coologger.Check;
 
-namespace Coologger
+namespace Coologger.GUI
 {
     public partial class MenuForm : Form
     {
@@ -42,14 +38,7 @@ namespace Coologger
                 Convert.ToBase64String(Encoding.Default.GetBytes(input)));*/
             try
             {
-                WebClient client = new WebClient();
-                Label1.Text = client.DownloadString("http://coologger.no-ip.org/coologger/news.txt");
-                if (!client.DownloadString("http://coologger.no-ip.org/coologger/version.txt")
-                    .Contains(Application.ProductVersion))
-                {
-
-                }
-                client.Dispose();
+                Label1.Text = RemoteSettings.GrabSetting("news.php");
             }
             catch
             {
@@ -82,7 +71,7 @@ namespace Coologger
             }
         }
 
-        private void PictureBox2_Click(object sender, EventArgs e)
+        private void PictureBox2Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

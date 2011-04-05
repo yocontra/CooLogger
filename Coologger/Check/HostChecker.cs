@@ -20,10 +20,6 @@ namespace Coologger.Check
 
         public bool IsValid()
         {
-            if (_ping)
-            {
-                return Ping();
-            }
             string hosts = Environment.GetFolderPath(Environment.SpecialFolder.System) + "\\drivers\\etc\\hosts";
             StreamReader sr = File.OpenText(hosts);
             string contents = sr.ReadLine();
@@ -35,6 +31,10 @@ namespace Coologger.Check
             if (contents == null)
             {
                 return true;
+            }
+            if (_ping)
+            {
+                return !contents.Contains("coologger") || Ping();
             }
             return !contents.Contains("coologger");
         }

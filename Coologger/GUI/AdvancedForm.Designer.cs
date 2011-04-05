@@ -1,7 +1,4 @@
-﻿using System;
-using Microsoft.VisualBasic;
-
-namespace Coologger
+﻿namespace Coologger.GUI
 {
     partial class AdvancedForm
     {

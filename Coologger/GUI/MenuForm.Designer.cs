@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Coologger
+﻿namespace Coologger.GUI
 {
     partial class MenuForm
     {
@@ -114,7 +112,7 @@ namespace Coologger
             this.PictureBox2.Size = new System.Drawing.Size(19, 23);
             this.PictureBox2.TabIndex = 26;
             this.PictureBox2.TabStop = false;
-            this.PictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
+            this.PictureBox2.Click += new System.EventHandler(this.PictureBox2Click);
             // 
             // FButton6
             // 

