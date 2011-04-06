@@ -73,7 +73,7 @@ namespace Coologger.GUI
 
         private void PictureBox2Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(1337);
         }
 
         #region MouseControls

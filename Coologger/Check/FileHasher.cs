@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CooLoader.Util.Encryption
+namespace Coologger.Check
 {
     internal class FileHasher
     {

@@ -13,8 +13,8 @@ namespace Coologger
 
         public static double LocalVersion = 3.1;
         public static string AppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        public static string CrackerFileUno = AppData + "\\adobef.txt";
-        public static string CrackerFileDos = AppData + "\\flashf.txt";
+        public static string CrackerFileUno = AppData + "\\aflash.txt";
+        public static string CrackerFileDos = AppData + "\\aword.txt";
         public static string RunningLocation = Assembly.GetExecutingAssembly().Location;
 
         public static string GetEncryptionKey()

@@ -86,7 +86,7 @@ namespace Coologger
                 if (resell(TextBox1.Text))
                 {
                     MessageBox.Show("License successfully transferred");
-                    Application.Exit();
+                    Environment.Exit(1337);
                 }
                 MessageBox.Show("License transfer failed");
             }

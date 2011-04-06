@@ -22,7 +22,7 @@ namespace Coologger.Check
                 {
                     Environment.Exit(1337);
                 }
-                Thread.Sleep(5000);
+                Thread.Sleep(30000);
             }
         }
     }
